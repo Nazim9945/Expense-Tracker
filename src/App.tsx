@@ -2,7 +2,9 @@
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <button className="btn btn-primary">btn</button>
+    </div>
   )
 }
 
