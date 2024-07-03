@@ -4,6 +4,7 @@ import DropDownList from "./components/DropDownList";
 
 
 const App = () => {
+  const [category,setCategory]=useState('');
   const [Expenses, setExpenses] = useState([
     { id: 1, description: "aaa", amount: 2, category: "Utility" },
     { id: 2, description: "aaa", amount: 2, category: "Utility" },
@@ -11,10 +12,11 @@ const App = () => {
     { id: 4, description: "aaa", amount: 2, category: "Groceries" },
     { id: 5, description: "aaa", amount: 2, category: "Utility" },
   ]);
+  const filteredExpense=category?Expenses.filter(exp=>exp.category===category):Expenses
   return (
   <>
-  <DropDownList/>
-    <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={Expenses}/>
+  <DropDownList onSelectCategory={(category)=>setCategory(category)}/>
+    <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={filteredExpense}/>
   </>
   )
 }

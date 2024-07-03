@@ -1,12 +1,14 @@
 import categories from "../service.ts/categories"
 
-
-const DropDownList = () => {
+interface Props{
+    onSelectCategory:(category:string)=>void
+}
+const DropDownList = ({onSelectCategory}:Props) => {
   return (
-   <select name="category"  className="form-select">
+   <select name="category"  className="form-select" onChange={(e)=>onSelectCategory(e.target.value)}>
     <option value="">All Category</option>
    {categories.map(category=>(
-    <option value={category}>{category}</option>
+    <option key={category} value={category}>{category}</option>
    ))}
    </select>
   )
