@@ -14,9 +14,12 @@ const App = () => {
     { id: 5, description: "aaa", amount: 2, category: "Utility" },
   ]);
   const filteredExpense=category?Expenses.filter(exp=>exp.category===category):Expenses
+  // const Addinexpense=(expense:any)=>(
+  //     setExpenses([...Expenses,{...expense,id:Expenses.length+1}])
+  // ) or can directely set while recieving prop
   return (
   <>
-  <Form/>
+  <Form onAdd={(expense)=> setExpenses([...Expenses,{...expense,id:Expenses.length+1}])}/>
   <DropDownList onSelectCategory={(category)=>setCategory(category)}/>
     <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={filteredExpense}/>
   </>
