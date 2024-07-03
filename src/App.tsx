@@ -12,7 +12,7 @@ const App = () => {
   ]);
   return (
   <>
-    <ExpenseList expenses={Expenses}/>
+    <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={Expenses}/>
   </>
   )
 }
