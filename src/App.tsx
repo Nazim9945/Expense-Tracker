@@ -18,12 +18,21 @@ const App = () => {
   //     setExpenses([...Expenses,{...expense,id:Expenses.length+1}])
   // ) or can directely set while recieving prop
   return (
-  <>
-  <Form onAdd={(expense)=> setExpenses([...Expenses,{...expense,id:Expenses.length+1}])}/>
-  <DropDownList onSelectCategory={(category)=>setCategory(category)}/>
-    <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={filteredExpense}/>
-  </>
-  )
+    <div className="w-50  mx-auto m-3">
+      <Form
+        onAdd={(expense) =>
+          setExpenses([...Expenses, { ...expense, id: Expenses.length + 1 }])
+        }
+      />
+      <DropDownList onSelectCategory={(category) => setCategory(category)} />
+      <ExpenseList
+        onDelete={(id) =>
+          setExpenses(Expenses.filter((expense) => id !== expense.id))
+        }
+        expenses={filteredExpense}
+      />
+    </div>
+  );
 }
 
 export default App

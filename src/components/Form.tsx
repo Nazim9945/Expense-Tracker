@@ -32,7 +32,7 @@ const Form = ({onAdd}:Props) => {
     
   return (
     <>
-      <form onSubmit={handleSubmit(data=>{
+      <form className="mb-3" onSubmit={handleSubmit(data=>{
         onAdd(data)
         reset()
       }
