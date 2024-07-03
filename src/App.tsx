@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ExpenseList from "./components/ExpenseList"
+import DropDownList from "./components/DropDownList";
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
   ]);
   return (
   <>
+  <DropDownList/>
     <ExpenseList onDelete={(id)=>setExpenses(Expenses.filter(expense=>id!==expense.id))} expenses={Expenses}/>
   </>
   )
